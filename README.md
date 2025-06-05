@@ -20,16 +20,16 @@ Este repositório contém o **back-end** da aplicação web de uma pizzaria, des
 -   Geração de token contendo a role do usuário.
 -   Filtro de segurança que intercepta requisições e valida o token.
 -   Proteção de rotas de acordo com o perfil do usuário.
-
-### 📦 Funcionalidade de Pedidos
-
--   Entidade `Pedido` associada a `Produto` e `Usuário`.
--   Registro de pedidos com múltiplos itens selecionados.
--   Validações com `@Valid` e controle de erros.
--   Integração com JWT para associar pedidos ao cliente logado.
--   **Permissões**: Apenas usuários autenticados com as roles `CLIENTE`, `ATENDENTE` ou `ADMIN` podem realizar pedidos.
-
-> Essa funcionalidade é essencial para simular o fluxo real de uma pizzaria — desde a escolha do produto até a finalização do pedido — sempre com segurança e organização.
+    ```java
+    .authorizeHttpRequests(authorize -> authorize
+            .requestMatchers(HttpMethod.POST, "/pedidos").hasAnyRole("ADMIN","CLIENTE", "ATENDENTE")
+            .requestMatchers("/pizzas/**").hasRole("ADMIN")
+            .requestMatchers("/gerenciador/**").hasRole("ADMIN")
+            .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+            .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+            .anyRequest().authenticated()
+    )
+    ```
 
 ---
 
