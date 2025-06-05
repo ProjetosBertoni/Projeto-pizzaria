@@ -1,4 +1,4 @@
-# 🍕 Projeto Pizzaria - Backend
+# 🍕 Projeto Pizzaria - Back-end
 
 Este repositório contém o **back-end** da aplicação web de uma pizzaria, desenvolvida durante a graduação em **Análise e Desenvolvimento de Sistemas**. O objetivo foi simular, com qualidade técnica, o funcionamento real de uma pizzaria — desde o cadastro de produtos até a realização de pedidos, com autenticação segura e controle de acesso por perfil.
 
